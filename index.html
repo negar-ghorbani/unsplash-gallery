@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plan-B Gallery</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <h1>Logo</h1>
+      <a href="#">Github link</a>
+    </nav>
+  </header>
+  <main>
+    <input id="input" type="text" placeholder="Search...">
+    <button type="submit" id="search">search</button>
+    <div id="image-container">
+
+    </div>
+    <footer>
+      <button id="prev">Prev</button>
+      <button id="next">Next</button>
+    </footer>
+  </main>
+  <script type="module" src="/src/fetcher.ts"></script>
+</body>
+
 </html>
