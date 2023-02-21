@@ -1,3 +1,14 @@
+bady {
+  min-height: 100vh;
+}
+
+header nav {
+  padding: 0 3rem;
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 input#input {
   display: inline-block;
@@ -19,6 +30,7 @@ input#input:focus {
   width: 40%;
   position: relative;
   margin: 1% 2% 1% 25%;
+  z-index: 1;
 }
 
 .search-container input,
@@ -134,4 +146,10 @@ img {
   font-size: larger;
 }
 
+footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 30px;
 
+}

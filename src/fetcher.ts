@@ -66,7 +66,6 @@ function useSuggestion(e) {
   const suggestions = document.querySelector('.suggestions ul')!;
   const input = document.getElementById('input')!;
   input.value = e.target.innerText;
-  input.focus();
   suggestions.innerHTML = '';
   suggestions.classList.remove('has-suggestions');
 }
