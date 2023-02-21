@@ -17,8 +17,15 @@
     </nav>
   </header>
   <main>
-    <input id="input" type="text" placeholder="Search...">
-    <button type="submit" id="search">search</button>
+    <div class="autocomplete">
+      <div class="search-container">
+        <input id="input" type="text" placeholder="Search..." autocomplete="off">
+        <button type="submit" id="search">search</button>
+        <div class="suggestions">
+          <ul></ul>
+        </div>
+      </div>
+    </div>
     <div id="image-container">
 
     </div>
