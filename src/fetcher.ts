@@ -6,7 +6,9 @@ localStorage.setItem('myList', '[]');
 
 searchButton.addEventListener('click', () => {
   const search = document.getElementById('input') as HTMLElement;
-  const url = `https://api.unsplash.com/search/photos/?client_id=q4swtOlzLBR4BJxfQEgQA-u3_3hNzATacG7eJtjYLcU&query=${search.value}`;
+  const url = `https://api.unsplash.com/search/photos/?client_id=${
+    import.meta.env.VITE_CLIENT_ID
+  }&query=${search.value}`;
 
   const myList = JSON.parse(localStorage.getItem('myList')!);
   if (search.value === '' || myList.includes(search.value)) {

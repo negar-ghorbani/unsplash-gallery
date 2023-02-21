@@ -1,6 +1,16 @@
 bady {
   min-height: 100vh;
 }
+nav a {
+  text-decoration: none;
+  color: black;
+} 
+#search {
+    background-color: white;
+      color: black;
+      border: 2px solid black;
+      height: 50px;
+}
 
 header nav {
   padding: 0 3rem;
@@ -8,6 +18,7 @@ header nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #B0AEB6;
 }
 
 input#input {
