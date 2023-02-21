@@ -19,6 +19,7 @@ searchButton.addEventListener('click', () => {
   localStorage.setItem('myList', JSON.stringify(myList));
 
   fetchAPI(url);
+  search.value = '';
 });
 
 export const fetchAPI = async (url: string) => {
@@ -46,7 +47,7 @@ export const fetchAPI = async (url: string) => {
 };
 
 const input = document.getElementById('input')!;
-input.addEventListener('input', function () {
+input.addEventListener('focus', function () {
   let data = JSON.parse(localStorage.getItem('myList')!);
   const suggestions = document.querySelector('.suggestions ul')!;
   suggestions.innerHTML = '';
@@ -68,6 +69,7 @@ function useSuggestion(e) {
   const suggestions = document.querySelector('.suggestions ul')!;
   const input = document.getElementById('input')!;
   input.value = e.target.innerText;
+  input.focus();
   suggestions.innerHTML = '';
   suggestions.classList.remove('has-suggestions');
 }

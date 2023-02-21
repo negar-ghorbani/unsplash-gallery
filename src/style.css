@@ -10,6 +10,13 @@ nav a {
       color: black;
       border: 2px solid black;
       height: 50px;
+      border-radius: 10px;
+      padding: 0 20px;
+}
+
+#search:hover {
+  background-color: black;
+  color: white;
 }
 
 header nav {
@@ -44,6 +51,10 @@ input#input:focus {
   z-index: 1;
 }
 
+.search-container:hover .suggestions {
+  visibility: visible;
+}
+
 .search-container input,
 .search-container .suggestions {
   width: 80%;
@@ -60,6 +71,10 @@ input#input:focus {
 .search-container .suggestions {
   position: absolute;
   top: 60px;
+}
+
+.suggestions {
+  visibility: hidden;
 }
 
 ul {
