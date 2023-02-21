@@ -8,7 +8,7 @@ searchButton.addEventListener('click', () => {
   const search = document.getElementById('input') as HTMLElement;
   const url = `https://api.unsplash.com/search/photos/?client_id=${
     import.meta.env.VITE_CLIENT_ID
-  }&query=${search.value}`;
+  }&query=${search.value}&fit=crop&h=200px&w=300px`;
 
   const myList = JSON.parse(localStorage.getItem('myList')!);
   if (search.value === '' || myList.includes(search.value)) {
