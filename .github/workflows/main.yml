@@ -26,5 +26,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.4.1
         with:
-          github_token: ${{ secrets.VITE_CLIENT_ID }}
+          token: ${{ secrets.VITE_CLIENT_ID }}
           folder: src
