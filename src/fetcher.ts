@@ -55,6 +55,26 @@ searchButton.addEventListener('click', () => {
   return true;
 });
 
+// searchButton.addEventListener('keydown', (event) => {
+//   if (event.keyCode === 13) {
+//   const search = document.getElementById('input') as HTMLInputElement;
+//   const url = `https://api.unsplash.com/search/photos/?client_id=${
+//     import.meta.env.VITE_CLIENT_ID
+//   }&query=${search.value}&fit=crop&h=200px&w=300px`;
+
+//   const myList = JSON.parse(localStorage.getItem('myList')!);
+//   if (search.value === '' || myList.includes(search.value)) {
+//     fetchAPI(url);
+//     return myList;
+//   }
+//   myList.push(search.value);
+//   localStorage.setItem('myList', JSON.stringify(myList));
+
+//   fetchAPI(url);
+//   search.value = '';
+//   return true;
+// }});
+
 const input = document.getElementById('input')!;
 input.addEventListener('focus', () => {
   let data = JSON.parse(localStorage.getItem('myList')!);
