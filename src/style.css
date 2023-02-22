@@ -3,7 +3,7 @@ nav a {
   color: black;
   margin-left: auto;
 }
-#search {
+#search #prev #next {
   background-color: white;
   color: black;
   border: 2px solid black;
