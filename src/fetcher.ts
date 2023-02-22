@@ -6,12 +6,12 @@ localStorage.setItem('myList', '[]');
 
 export const fetchAPI = async (url: string) => {
   const images = await fetch(url)
-    .then((response) => response.json())
-    .then((data) => data.results);
+    .then(response => response.json())
+    .then(data => data.results);
 
   const container: HTMLElement = document.getElementById('image-container')!;
   container.innerHTML = '';
-  images.forEach((image) => {
+  images.forEach(image => {
     container.innerHTML += `
     <div class="imageDiv">
       <div class="flip-card">
