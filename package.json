@@ -19,6 +19,7 @@
     "vite": "^4.1.0"
   },
   "dependencies": {
+    "@jest/globals": "^29.4.3",
     "eslint-config-salt-typescript": "^1.0.0"
   }
 }

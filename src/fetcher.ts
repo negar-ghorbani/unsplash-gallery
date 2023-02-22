@@ -1,8 +1,32 @@
 export const searchButton = document.getElementById(
-  'search'
+  'search',
 ) as HTMLButtonElement;
 
 localStorage.setItem('myList', '[]');
+
+export const fetchAPI = async (url: string) => {
+  const images = await fetch(url)
+    .then(response => response.json())
+    .then(data => data.results);
+
+  const container: HTMLElement = document.getElementById('image-container')!;
+  container.innerHTML = '';
+  images.forEach(image => {
+    container.innerHTML += `
+    <div class="imageDiv">
+      <div class="flip-card">
+      <div class="flip-card-inner">
+    <div class="flip-card-front">
+     <img src="${image.urls.small}" alt="${image.alt_description}" style="width:300px;height:300px;">
+    </div>
+    <div class="flip-card-back">
+     ${image.alt_description}
+    </div>
+  </div>
+</div>
+</div>`;
+  });
+};
 
 searchButton.addEventListener('click', () => {
   const search = document.getElementById('input') as HTMLElement;
@@ -20,40 +44,16 @@ searchButton.addEventListener('click', () => {
 
   fetchAPI(url);
   search.value = '';
+  return true;
 });
 
-export const fetchAPI = async (url: string) => {
-  const images = await fetch(url)
-    .then((response) => response.json())
-    .then((data) => data.results);
-
-  const container: HTMLElement = document.getElementById('image-container')!;
-  container.innerHTML = '';
-  images.forEach((image) => {
-    container.innerHTML += `
-    <div class="imageDiv">
-      <div class="flip-card">
-      <div class="flip-card-inner">
-    <div class="flip-card-front">
-     <img src="${image.urls.small}" alt="${image.alt_description}" style="width:300px;height:300px;">
-    </div>
-    <div class="flip-card-back">
-     ${image.alt_description}
-    </div>
-  </div>
-</div>
-</div>`;
-  });
-};
-
 const input = document.getElementById('input')!;
-input.addEventListener('focus', function () {
+input.addEventListener('focus', () => {
   let data = JSON.parse(localStorage.getItem('myList')!);
   const suggestions = document.querySelector('.suggestions ul')!;
   suggestions.innerHTML = '';
   if (data.length > 0) {
     for (let i = 0; i < data.length; i++) {
-      console.log(data);
       let item = data[i];
       item = item.replace(item, `<strong>${item}</strong>`);
       suggestions.innerHTML += `<li>${item}</li>`;
@@ -67,9 +67,9 @@ input.addEventListener('focus', function () {
 });
 function useSuggestion(e) {
   const suggestions = document.querySelector('.suggestions ul')!;
-  const input = document.getElementById('input')!;
-  input.value = e.target.innerText;
-  input.focus();
+  const inputs = document.getElementById('input')!;
+  inputs.value = e.target.innerText;
+  inputs.focus();
   suggestions.innerHTML = '';
   suggestions.classList.remove('has-suggestions');
 }
