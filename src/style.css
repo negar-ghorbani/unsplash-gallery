@@ -1,14 +1,15 @@
 nav a {
   text-decoration: none;
   color: black;
-} 
+  margin-left: auto;
+}
 #search {
-    background-color: white;
-      color: black;
-      border: 2px solid black;
-      height: 50px;
-      border-radius: 10px;
-      padding: 0 20px;
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  height: 50px;
+  border-radius: 10px;
+  padding: 0 20px;
 }
 
 #search:hover {
@@ -22,7 +23,7 @@ header nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #B0AEB6;
+  background-color: #b0aeb6;
 }
 
 input#input {
@@ -35,7 +36,7 @@ input#input {
 }
 
 input#input:focus {
-  border-bottom: 2px solid #5D7682;
+  border-bottom: 2px solid #5d7682;
   outline-offset: 0px;
   outline: none;
 }
@@ -96,11 +97,11 @@ ul li {
 }
 
 ul li:hover {
-  background-color: #B2CAD2;
+  background-color: #b2cad2;
 }
 
 input#input {
-  border-bottom: 2px solid #5D7682;
+  border-bottom: 2px solid #5d7682;
 }
 
 #image-container {
@@ -164,7 +165,7 @@ img {
 
 /* Style the back side */
 .flip-card-back {
-  background-color: #B0AEB6;
+  background-color: #b0aeb6;
   color: white;
   transform: rotateY(180deg);
   padding-top: 80px;
@@ -176,5 +177,4 @@ footer {
   bottom: 0;
   float: right;
   padding: 30px;
-
 }

@@ -1,6 +1,5 @@
 import { describe, expect, test } from '@jest/globals';
 
-
 // const url = `https://api.unsplash.com/photos/?client_id=${process.env.client_id}`;
 
 // describe('testing fetch function', () => {
@@ -16,9 +15,8 @@ import { describe, expect, test } from '@jest/globals';
 //     })
 // })
 
-
-// describe('testing fetch function', () => {
-//     test('should response with 4', async () => {
-//         expect(addfunction(2, 2)).toBe(4);
-//     })
-// })
+describe('true be, or not true be', () => {
+  test('that is the question', async () => {
+    expect(true).toBe(true);
+  });
+});
