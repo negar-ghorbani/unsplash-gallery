@@ -1,4 +1,6 @@
 name: gallery.js CI
+permissions:
+  contents: write
 on:
   push:
     branches:
@@ -7,7 +9,7 @@ on:
     branches:
       - main
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -15,7 +17,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16.x'
+
       - run: npm ci
       - run: npm run lint
       - run: npm run teste2e
       - run: npm t
+
+      - name: Deploy 🚀
+          uses: JamesIves/github-pages-deploy-action@v4
+          with:
+            folder: build
