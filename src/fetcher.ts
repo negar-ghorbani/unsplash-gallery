@@ -4,6 +4,14 @@ export const searchButton = document.getElementById(
 
 localStorage.setItem('myList', '[]');
 
+type ResponseURL = {
+  small: string;
+};
+type ResponseImage = {
+  alt_description: string,
+  urls: ResponseURL
+};
+
 export const fetchAPI = async (url: string) => {
   const images = await fetch(url)
     .then(response => response.json())
@@ -11,7 +19,7 @@ export const fetchAPI = async (url: string) => {
 
   const container: HTMLElement = document.getElementById('image-container')!;
   container.innerHTML = '';
-  images.forEach(image => {
+  images.forEach((image: ResponseImage) => {
     container.innerHTML += `
     <div class="imageDiv">
       <div class="flip-card">
@@ -29,7 +37,7 @@ export const fetchAPI = async (url: string) => {
 };
 
 searchButton.addEventListener('click', () => {
-  const search = document.getElementById('input') as HTMLElement;
+  const search = document.getElementById('input') as HTMLInputElement;
   const url = `https://api.unsplash.com/search/photos/?client_id=${
     import.meta.env.VITE_CLIENT_ID
   }&query=${search.value}&fit=crop&h=200px&w=300px`;
@@ -65,9 +73,9 @@ input.addEventListener('focus', () => {
     suggestions.classList.remove('has-suggestions');
   }
 });
-function useSuggestion(searchQuery) {
+export function useSuggestion(searchQuery: any) {
   const suggestions = document.querySelector('.suggestions ul')!;
-  const inputs = document.getElementById('input')!;
+  const inputs = document.getElementById('input') as HTMLInputElement;
   inputs.value = searchQuery.target.innerText;
   inputs.focus();
   suggestions.innerHTML = '';

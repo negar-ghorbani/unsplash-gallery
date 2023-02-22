@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@jest/globals": "^29.4.3",
-    "eslint-config-salt-typescript": "^1.0.0"
+    "eslint-config-salt-typescript": "^1.0.0",
+    "jest-mock-fetch": "^2.0.5"
   }
 }

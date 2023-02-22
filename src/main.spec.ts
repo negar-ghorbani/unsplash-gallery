@@ -1,19 +1,27 @@
 import { describe, expect, test } from '@jest/globals';
+// import * as fetcher from './fetcher';
 
-// const url = `https://api.unsplash.com/photos/?client_id=${process.env.client_id}`;
+// // const mockData = 'cats';
+// const url = `https://google.com/`;
 
-// describe('testing fetch function', () => {
-//     let response: Response;
-//     beforeEach(async () => {
-//         response = await fetchFunction(url);
-//     });
-//     it('should respond with status code 200', async () => {
-//         assert.equal(response.status, 200);
+// describe('fetcher module', () => {
+//   test.only('should call fetchApi', async () => {
+//     jest.spyOn(fetcher.useSuggestion, 'fetchAPI')
+//     expect(fetcher.fetchAPI).toHaveBeenCalled()
+//   })
+//   test('should respond with 200', async () => {
+//     const returnedValue = await fetcher.fetchAPI(url)
+//     expect(returnedValue.status).toBe(200)
+//   })
+//   test('fetchUser should get data from the fetcher and return it', (done) => {
+//    fetcher.fetchAPI(url).then(data => {
+//      expect(data).toEqual({
+//        user: 'Ahsan'
+//       });
+//       done();
 //     })
-//     it('should response with JSON data', async () => {
-//         assert.equal(response.status, 200);
-//     })
-// })
+//   });
+// });
 
 describe('true be, or not true be', () => {
   test('that is the question', async () => {
