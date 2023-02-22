@@ -1,34 +1,25 @@
 export const searchButton = document.getElementById(
-  'search'
+  'search',
 ) as HTMLButtonElement;
 
 localStorage.setItem('myList', '[]');
 
-searchButton.addEventListener('click', () => {
-  const search = document.getElementById('input') as HTMLElement;
-  const url = `https://api.unsplash.com/search/photos/?client_id=${
-    import.meta.env.VITE_CLIENT_ID
-  }&query=${search.value}`;
-
-  const myList = JSON.parse(localStorage.getItem('myList')!);
-  if (search.value === '' || myList.includes(search.value)) {
-    fetchAPI(url);
-    return myList;
-  }
-  myList.push(search.value);
-  localStorage.setItem('myList', JSON.stringify(myList));
-
-  fetchAPI(url);
-});
+type ResponseURL = {
+  small: string;
+};
+type ResponseImage = {
+  alt_description: string,
+  urls: ResponseURL
+};
 
 export const fetchAPI = async (url: string) => {
   const images = await fetch(url)
-    .then((response) => response.json())
-    .then((data) => data.results);
+    .then(response => response.json())
+    .then(data => data.results);
 
   const container: HTMLElement = document.getElementById('image-container')!;
   container.innerHTML = '';
-  images.forEach((image) => {
+  images.forEach((image: ResponseImage) => {
     container.innerHTML += `
     <div class="imageDiv">
       <div class="flip-card">
@@ -45,14 +36,52 @@ export const fetchAPI = async (url: string) => {
   });
 };
 
+searchButton.addEventListener('click', () => {
+  const search = document.getElementById('input') as HTMLInputElement;
+  const url = `https://api.unsplash.com/search/photos/?client_id=${
+    import.meta.env.VITE_CLIENT_ID
+  }&query=${search.value}&fit=crop&h=200px&w=300px`;
+
+  const myList = JSON.parse(localStorage.getItem('myList')!);
+  if (search.value === '' || myList.includes(search.value)) {
+    fetchAPI(url);
+    return myList;
+  }
+  myList.push(search.value);
+  localStorage.setItem('myList', JSON.stringify(myList));
+
+  fetchAPI(url);
+  search.value = '';
+  return true;
+});
+
+// searchButton.addEventListener('keydown', (event) => {
+//   if (event.keyCode === 13) {
+//   const search = document.getElementById('input') as HTMLInputElement;
+//   const url = `https://api.unsplash.com/search/photos/?client_id=${
+//     import.meta.env.VITE_CLIENT_ID
+//   }&query=${search.value}&fit=crop&h=200px&w=300px`;
+
+//   const myList = JSON.parse(localStorage.getItem('myList')!);
+//   if (search.value === '' || myList.includes(search.value)) {
+//     fetchAPI(url);
+//     return myList;
+//   }
+//   myList.push(search.value);
+//   localStorage.setItem('myList', JSON.stringify(myList));
+
+//   fetchAPI(url);
+//   search.value = '';
+//   return true;
+// }});
+
 const input = document.getElementById('input')!;
-input.addEventListener('input', function () {
+input.addEventListener('focus', () => {
   let data = JSON.parse(localStorage.getItem('myList')!);
   const suggestions = document.querySelector('.suggestions ul')!;
   suggestions.innerHTML = '';
   if (data.length > 0) {
     for (let i = 0; i < data.length; i++) {
-      console.log(data);
       let item = data[i];
       item = item.replace(item, `<strong>${item}</strong>`);
       suggestions.innerHTML += `<li>${item}</li>`;
@@ -64,12 +93,17 @@ input.addEventListener('input', function () {
     suggestions.classList.remove('has-suggestions');
   }
 });
-function useSuggestion(e) {
+export function useSuggestion(searchQuery: any) {
   const suggestions = document.querySelector('.suggestions ul')!;
-  const input = document.getElementById('input')!;
-  input.value = e.target.innerText;
+  const inputs = document.getElementById('input') as HTMLInputElement;
+  inputs.value = searchQuery.target.innerText;
+  inputs.focus();
   suggestions.innerHTML = '';
   suggestions.classList.remove('has-suggestions');
+  const url = `https://api.unsplash.com/search/photos/?client_id=${
+    import.meta.env.VITE_CLIENT_ID
+  }&query=${inputs.value}&fit=crop&h=200px&w=300px`;
+  fetchAPI(url);
 }
 const suggestions = document.querySelector('.suggestions ul')!;
 suggestions.addEventListener('click', useSuggestion);

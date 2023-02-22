@@ -1,24 +1,35 @@
-bady {
-  min-height: 100vh;
+body {
+  font-family: 'Quicksand', sans-serif;
+  margin: 0;
 }
 nav a {
   text-decoration: none;
+  color: #ffffff;
+  margin-left: auto;
+}
+button {
+  background-color: white;
   color: black;
-} 
-#search {
-    background-color: white;
-      color: black;
-      border: 2px solid black;
-      height: 50px;
+  border: 2px solid black;
+  height: 50px;
+  border-radius: 10px;
+  padding: 0 20px;
+  font-size: large;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
 }
 
 header nav {
+  color: #ffff;
   padding: 0 3rem;
   border-bottom: 1px solid black;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #B0AEB6;
+  background-color: #000000;
 }
 
 input#input {
@@ -31,7 +42,7 @@ input#input {
 }
 
 input#input:focus {
-  border-bottom: 2px solid #5D7682;
+  border-bottom: 2px solid #5d7682;
   outline-offset: 0px;
   outline: none;
 }
@@ -44,6 +55,10 @@ input#input:focus {
   z-index: 1;
 }
 
+.search-container:hover .suggestions {
+  visibility: visible;
+}
+
 .search-container input,
 .search-container .suggestions {
   width: 80%;
@@ -53,13 +68,18 @@ input#input:focus {
 
 .search-container input {
   background: rgba(255, 255, 255, 0.2);
+  font-size: larger;
   height: 60px;
-  padding: 0 10px;
+  padding: 0px 10px;
 }
 
 .search-container .suggestions {
   position: absolute;
   top: 60px;
+}
+
+.suggestions {
+  visibility: hidden;
 }
 
 ul {
@@ -84,16 +104,19 @@ ul li {
 }
 
 ul li:hover {
-  background-color: #B2CAD2;
+  background-color: #ebebeb;
 }
 
 input#input {
-  border-bottom: 2px solid #5D7682;
+  border-bottom: 2px solid #0c0c0c;
 }
 
 #image-container {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
+  margin: auto;
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
 }
 
 .imageDiv {
@@ -101,14 +124,13 @@ grid-template-columns: repeat(3, 1fr);
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-top: 20px;
+  margin: 80px;
 }
 
 img {
   object-fit: cover;
 }
 .flip-card {
-  overflow: hidden;
   background-color: transparent;
   width: 300px;
   height: 200px;
@@ -150,7 +172,7 @@ img {
 
 /* Style the back side */
 .flip-card-back {
-  background-color: dodgerblue;
+  background-color: #000000;
   color: white;
   transform: rotateY(180deg);
   padding-top: 80px;
@@ -158,9 +180,8 @@ img {
 }
 
 footer {
-  position: absolute;
+  position: relative;
   bottom: 0;
-  right: 0;
+  float: right;
   padding: 30px;
-
 }

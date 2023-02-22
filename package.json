@@ -2,7 +2,6 @@
   "name": "vite-typescript-starter",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -20,6 +19,8 @@
     "vite": "^4.1.0"
   },
   "dependencies": {
-    "eslint-config-salt-typescript": "^1.0.0"
+    "@jest/globals": "^29.4.3",
+    "eslint-config-salt-typescript": "^1.0.0",
+    "jest-mock-fetch": "^2.0.5"
   }
 }
