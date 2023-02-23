@@ -2,11 +2,13 @@ body {
   font-family: 'Quicksand', sans-serif;
   margin: 0;
 }
+
 nav a {
   text-decoration: none;
   color: #ffffff;
   margin-left: auto;
 }
+
 button {
   background-color: white;
   color: black;
@@ -49,7 +51,7 @@ input#input:focus {
 
 .search-container {
   display: inline-block;
-  width: 40%;
+  width: 60%;
   position: relative;
   margin: 1% 2% 1% 25%;
   z-index: 1;
@@ -61,7 +63,7 @@ input#input:focus {
 
 .search-container input,
 .search-container .suggestions {
-  width: 80%;
+  width: 60%;
   background: #fff;
   text-align: left;
 }
@@ -113,7 +115,6 @@ input#input {
 
 #image-container {
   margin: auto;
-  width: 80%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
@@ -130,6 +131,7 @@ input#input {
 img {
   object-fit: cover;
 }
+
 .flip-card {
   background-color: transparent;
   width: 300px;
@@ -184,4 +186,9 @@ footer {
   bottom: 0;
   float: right;
   padding: 30px;
+}
+
+#next,
+#prev {
+  display: none;
 }
