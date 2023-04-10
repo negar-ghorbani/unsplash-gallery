@@ -12,6 +12,7 @@
     "teste2e": "cypress run"
   },
   "devDependencies": {
+    "@types/dotenv": "^8.2.0",
     "@types/jest": "^29.4.0",
     "@types/node": "^18.15.11",
     "cypress": "^12.6.0",
@@ -21,6 +22,7 @@
   },
   "dependencies": {
     "@jest/globals": "^29.4.3",
+    "dotenv": "^16.0.3",
     "eslint-config-salt-typescript": "^1.0.0",
     "jest-mock-fetch": "^2.0.5"
   }

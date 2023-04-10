@@ -38,7 +38,7 @@ export const fetchAPI = async (url: string) => {
 
 searchButton.addEventListener('click', () => {
   const search = document.getElementById('input') as HTMLInputElement;
-  const url = `https://api.unsplash.com/search/photos/?client_id=${process.env.UNSPLASH_KEY}&query=${search.value}&fit=crop&h=200px&w=300px`;
+  const url = `https://api.unsplash.com/search/photos/?client_id=${import.meta.env.VITE_UNSPLASH_KEY}&query=${search.value}&fit=crop&h=200px&w=300px`;
 
   const myList = JSON.parse(localStorage.getItem('myList')!);
   if (search.value === '' || myList.includes(search.value)) {
@@ -79,7 +79,7 @@ export function useSuggestion(searchQuery: any) {
   inputs.focus();
   suggestions.innerHTML = '';
   suggestions.classList.remove('has-suggestions');
-  const url = `https://api.unsplash.com/search/photos/?client_id=${process.env.UNSPLASH_KEY}&query=${inputs.value}&fit=crop&h=200px&w=300px`;
+  const url = `https://api.unsplash.com/search/photos/?client_id=${import.meta.env.VITE_UNSPLASH_KEY}&query=${inputs.value}&fit=crop&h=200px&w=300px`;
   fetchAPI(url);
 }
 const suggestions = document.querySelector('.suggestions ul')!;
